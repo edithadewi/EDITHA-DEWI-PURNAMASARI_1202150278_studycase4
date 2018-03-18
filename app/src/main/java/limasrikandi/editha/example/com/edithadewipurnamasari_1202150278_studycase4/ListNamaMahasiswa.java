@@ -40,7 +40,6 @@ public class ListNamaMahasiswa extends AppCompatActivity {
     private ItemListView itemListView;
     private Button a;
 
-    ListNamaFragment fragment;
 
     Activity activity;
 
@@ -74,18 +73,6 @@ public class ListNamaMahasiswa extends AppCompatActivity {
             }
         });
 
-        if (savedInstanceState == null){
-            fragment = new ListNamaFragment();
-            getSupportFragmentManager().beginTransaction().add(fragment,"task").commit();
-        }else{ //activity created for subscquent time
-            fragment = (ListNamaFragment) getSupportFragmentManager().findFragmentByTag("task");
-        }
-
-        if (fragment != null){
-            if (fragment.itemListView != null && fragment.itemListView.getStatus() == AsyncTask.Status.RUNNING){
-                // progressBar.setVisibility(View.VISIBLE);
-            }
-        }
     }
 
     class ItemListView  extends AsyncTask<Void, String, Void> {
